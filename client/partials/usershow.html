@@ -1,0 +1,20 @@
+<div ng-controller='itemController'>
+
+<div ng-controller='userController'>
+
+<a href="#/home">Home</a> | <a href="#/" ng-click='logout()'>Logout</a> | 
+
+<h1>{{showUser.name}}s Bucket List:</h1><br>
+
+
+	<h3>Done:</h3>
+	<p ng-repeat='item in showUser._items' ng-if="item.status=='completed'" ><input  ng-if="currentUser._id==showUser._id" type="checkbox" ng-click='changeStatus(item._id)' checked>{{item.created_by}} | {{item.title}} | {{ item.description}}| {{item.createdAt| date}}<p>
+
+
+
+
+	<h3>Pending:</h3>
+	<p ng-repeat='item in showUser._items' ng-if="item.status=='pending'" ><input  ng-if="currentUser._id==showUser._id" type="checkbox" ng-click='changeStatus(item._id)'>{{item.created_by}} | {{item.title}} | {{ item.description | limitTo: 20 }}{{item.description.length > 2 ? '...' : ''}}| {{item.createdAt| date}}<p>
+</div>
+
+</div>
