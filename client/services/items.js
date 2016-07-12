@@ -17,13 +17,13 @@ myApp.factory('itemFactory', function($http, $location){
 	}
 
 
-	factory.changeStatus=function(id){
+	factory.changeStatus=function(id, callback){
 		id = {_id: id}
 
 
 		$http.post('/changestatus', id).success(function(output){
 
-			
+			callback(output)
 		})
 	}
 

@@ -61,10 +61,11 @@ myApp.controller('itemController', function($scope,itemFactory, userFactory, $lo
 
 
 	$scope.changeStatus = function(id){
-		itemFactory.changeStatus(id)
+		itemFactory.changeStatus(id, function(data){
 
+			$route.reload()
 
-		$route.reload()
+		})
 	}
 
 
